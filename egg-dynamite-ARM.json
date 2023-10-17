@@ -1,0 +1,31 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2023-10-18T09:10:50+11:00",
+    "name": "Dynamite-ARM",
+    "author": "placeholderemail@gmail.com",
+    "description": "Minecraft server software written in Go",
+    "features": null,
+    "docker_images": {
+        "quay.io\/matthewp\/pterodactyl:go1.21": "quay.io\/matthewp\/pterodactyl:go1.21"
+    },
+    "file_denylist": [],
+    "startup": ".\/dynamite",
+    "config": {
+        "files": "{\r\n    \"config.toml\": {\r\n        \"parser\": \"toml\",\r\n        \"find\": {\r\n            \"server_port\": \"{{server.build.default.port}}\"\r\n        }\r\n    }\r\n}",
+        "startup": "{\r\n    \"done\": \"Startup complete\"\r\n}",
+        "logs": "{}",
+        "stop": "stop"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\n# Dynamite\r\n#\r\n\r\nmkdir -p \/mnt\/server\r\ncd \/mnt\/server\r\n\r\ncurl -sSL -o dynamite https:\/\/github.com\/TheCubeNOOB\/DynamiteMC-Beta-Releases\/releases\/download\/latest-arm\/dynamite\r\n\r\nchmod u+x dynamite",
+            "container": "ghcr.io\/parkervcp\/installers:ubuntu",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": []
+}
